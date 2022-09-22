@@ -1,0 +1,25 @@
+@use '../abstracts' as *;
+
+.main {
+  padding-inline: rem(20);
+
+  @include breakpoint(medium) {
+    padding-inline: rem(40);
+  }
+
+  &__container {
+    width: min(100%, rem(1240));
+    display: grid;
+    justify-items: center;
+    row-gap: rem(40);
+    margin-block-start: rem(60);
+
+    @include breakpoint(medium) {
+      margin-block-start: rem(120);
+    }
+
+    @include breakpoint(large) {
+      margin-block-start: rem(160);
+    }
+  }
+}

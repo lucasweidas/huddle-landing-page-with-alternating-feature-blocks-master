@@ -1,0 +1,61 @@
+@use '../abstracts' as *;
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: rem(56);
+  padding-inline: rem(8);
+  margin-block-start: rem(80);
+  text-align: center;
+
+  @include breakpoint(medium) {
+    row-gap: rem(112);
+    padding-inline: rem(18);
+    margin-block-start: rem(160);
+  }
+
+  @include breakpoint(medium) {
+    margin-block-start: rem(72);
+  }
+
+  @include breakpoint(large) {
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: rem(32);
+    padding-inline: 0;
+    text-align: start;
+  }
+
+  &__content {
+    --content-max-width: 30rem;
+    width: min(100%, var(--content-max-width));
+    display: grid;
+    justify-items: center;
+    row-gap: rem(24);
+
+    @include breakpoint(medium) {
+      --content-max-width: 36.25rem;
+      row-gap: rem(32);
+    }
+
+    @include breakpoint(large) {
+      --content-max-width: 32.5rem;
+      justify-items: flex-start;
+      row-gap: rem(30);
+    }
+  }
+
+  &__image {
+    --image-max-width: 25rem;
+    width: min(100%, var(--image-max-width));
+
+    @include breakpoint(medium) {
+      --image-max-width: 38rem;
+    }
+
+    @include breakpoint(medium) {
+      --image-max-width: 42.5rem;
+    }
+  }
+}

@@ -1,0 +1,96 @@
+@use '../abstracts' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: rem(48);
+  background-color: var(--color-white);
+  padding: rem(48) rem(24) rem(32);
+  text-align: center;
+  border-radius: rem(16);
+  box-shadow: 0 0 rem(20) rem(-2) hsl(0, 0%, 0%, 0.1);
+
+  @include breakpoint(medium) {
+    row-gap: rem(72);
+    padding-block: rem(112) rem(64);
+  }
+
+  @include breakpoint(large) {
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: rem(40);
+    padding-block: rem(56);
+    padding-inline: clamp(rem(90), 8.5vw, rem(120)) rem(24);
+    text-align: start;
+
+    &.row-reverse {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &--get-started {
+    @extend .card;
+    --extra-width: 0.75rem;
+    width: min(100% + var(--extra-width), rem(800));
+    flex-direction: column;
+    row-gap: rem(38);
+    position: relative;
+    bottom: -35%;
+    padding: rem(48) rem(16);
+    margin-inline: calc(var(--extra-width));
+
+    @include breakpoint(medium) {
+      --extra-width: 2rem;
+      padding-block: rem(72) rem(64);
+    }
+
+    @include breakpoint(large) {
+      padding-block: rem(68) rem(52);
+    }
+
+    .button--get-started {
+      @include breakpoint(medium) {
+        --button-width: 25rem;
+      }
+
+      @include breakpoint(large) {
+        --button-height: 5rem;
+        font-size: rem(20);
+      }
+    }
+  }
+
+  &__image {
+    --image-max-width: 22.5rem;
+    width: min(100%, var(--image-max-width));
+
+    @include breakpoint(medium) {
+      --image-max-width: 28rem;
+    }
+
+    @include breakpoint(large) {
+      --image-max-width: 26.25rem;
+    }
+  }
+
+  &__content {
+    --content-max-width: 28.75rem;
+    width: min(100%, var(--content-max-width));
+    display: grid;
+    justify-items: center;
+    row-gap: rem(16);
+
+    @include breakpoint(medium) {
+      --content-max-width: 32.5rem;
+      row-gap: rem(22);
+    }
+
+    @include breakpoint(large) {
+      --content-max-width: 31rem;
+      justify-items: flex-start;
+      row-gap: rem(18);
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@use '../abstracts' as *;
+
+.contact {
+  --contact-max-width: 23.75rem;
+  height: fit-content;
+  width: min(100%, var(--contact-max-width));
+  display: grid;
+  row-gap: rem(22);
+
+  @include breakpoint(medium) {
+    --contact-max-width: 30rem;
+  }
+
+  @include breakpoint(large) {
+    --contact-max-width: 23rem;
+
+    .paragraph--white {
+      font-size: rem(16);
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    column-gap: rem(18);
+  }
+
+  &__icon {
+    flex: 0 0 rem(20);
+    margin-block-start: rem(4);
+  }
+}

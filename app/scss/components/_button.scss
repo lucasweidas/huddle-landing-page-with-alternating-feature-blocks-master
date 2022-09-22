@@ -1,0 +1,61 @@
+@use '../abstracts' as *;
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: min(100%, var(--button-width));
+  height: var(--button-height);
+  font-weight: 700;
+  text-transform: capitalize;
+  border-radius: var(--button-border-radius);
+  transition: opacity var(--duration-2) ease;
+
+  @include on-hover-focus-visible {
+    opacity: 0.7;
+  }
+
+  &--try-it {
+    @extend .button;
+    --button-width: 6.875rem;
+    --button-height: 1.75rem;
+    --button-border-radius: calc(var(--button-width) / 2);
+    background-color: var(--color-white);
+    font-size: rem(12);
+    color: var(--color-dark-cyan-900);
+    box-shadow: 0 rem(4) rem(20) rem(-2) hsl(192, 100%, 9%, 0.15);
+
+    @include breakpoint(medium) {
+      --button-width: 12rem;
+      --button-height: 3rem;
+      font-size: rem(18);
+    }
+
+    @include breakpoint(large) {
+      --button-width: 12.5rem;
+    }
+  }
+
+  &--get-started {
+    @extend .button;
+    --button-width: 17rem;
+    --button-height: 3rem;
+    --button-border-radius: calc(var(--button-width) / 2);
+    background-color: var(--color-pink);
+    font-size: rem(14);
+    color: var(--color-white);
+    box-shadow: 0 rem(4) rem(15) hsl(192, 100%, 9%, 0.2);
+
+    @include breakpoint(medium) {
+      --button-width: 30rem;
+      --button-height: 5rem;
+      font-size: rem(20);
+    }
+
+    @include breakpoint(large) {
+      --button-width: 17.5rem;
+      --button-height: 3.5rem;
+      font-size: rem(16);
+    }
+  }
+}

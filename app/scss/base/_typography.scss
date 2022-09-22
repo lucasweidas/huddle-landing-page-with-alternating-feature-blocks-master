@@ -1,0 +1,71 @@
+@use '../abstracts' as *;
+
+:root {
+  --font-poppins: 'Poppins', sans-serif;
+  --font-open-sans: 'Open Sans', sans-serif;
+  --font-size-body: 1.125rem;
+  --font-size-paragraph: 1rem;
+  --font-size-paragraph-sm: 0.875rem;
+  --font-size-heading-1: 1.625rem;
+  --font-size-heading-2: 1.375rem;
+
+  @include breakpoint(medium) {
+    --font-size-paragraph: 1.25rem;
+    --font-size-paragraph-sm: 1rem;
+    --font-size-heading-1: 3rem;
+    --font-size-heading-2: 2.25rem;
+  }
+
+  @include breakpoint(large) {
+    --font-size-paragraph: 1.125rem;
+    --font-size-heading-1: clamp(2.25rem, 3.5vw, 2.5rem);
+    --font-size-heading-2: 2rem;
+  }
+}
+
+body {
+  font-family: var(--font-open-sans);
+  font-size: var(--font-size-body);
+  font-weight: 400;
+}
+
+.heading {
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  color: var(--color-dark-cyan-900);
+  line-height: 1.4;
+
+  &--1 {
+    @extend .heading;
+    font-size: var(--font-size-heading-1);
+  }
+
+  &--2 {
+    @extend .heading;
+    font-size: var(--font-size-heading-2);
+  }
+}
+
+.paragraph {
+  font-size: var(--font-size-paragraph);
+  line-height: 1.6;
+
+  &--dark {
+    @extend .paragraph;
+    color: var(--color-dark-cyan-900);
+  }
+
+  &--grayish {
+    @extend .paragraph;
+    color: var(--color-grayish-blue-500);
+  }
+
+  &--white {
+    @extend .paragraph;
+    color: var(--color-white);
+  }
+
+  &--sm {
+    font-size: var(--font-size-paragraph-sm);
+  }
+}

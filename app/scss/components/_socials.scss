@@ -1,0 +1,35 @@
+@use '../abstracts' as *;
+
+.socials {
+  .list {
+    display: flex;
+    align-items: center;
+    column-gap: rem(16);
+
+    &__link {
+      --icon-size: 2.188rem;
+      width: var(--icon-size);
+      height: var(--icon-size);
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+      color: var(--color-white);
+      border: rem(1) solid currentColor;
+      border-radius: 50%;
+      transition: color var(--duration-2) ease;
+
+      @include on-hover-focus-visible {
+        color: var(--color-pink);
+      }
+
+      @include breakpoint(medium) {
+        @include breakpoint-down(large) {
+          --icon-size: 3.188rem;
+          font-size: 1.5rem;
+          border-width: rem(2);
+        }
+      }
+    }
+  }
+}

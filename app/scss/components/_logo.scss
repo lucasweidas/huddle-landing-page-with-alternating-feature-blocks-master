@@ -1,0 +1,28 @@
+@use '../abstracts' as *;
+
+.logo {
+  --logo-width: 6.875rem;
+  width: var(--logo-width);
+  flex: 0 0 auto;
+
+  @include breakpoint(medium) {
+    --logo-width: 13rem;
+  }
+
+  @include breakpoint(large) {
+    --logo-width: 12.5rem;
+  }
+
+  &--footer {
+    @extend .logo;
+    --logo-width: 10rem;
+
+    @include breakpoint(medium) {
+      --logo-width: 20.75rem;
+    }
+
+    @include breakpoint(large) {
+      --logo-width: 15rem;
+    }
+  }
+}
